@@ -1,6 +1,5 @@
-package com.arthur.web.user;
+package com.arthur.web.product;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,14 +12,13 @@ import javax.persistence.Id;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-@Entity(name = "users")
-public class User {
+@Entity(name = "products")
+public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String name;
-    private String email;
-    @JsonIgnore
-    private String password;
-
+    private String description;
+    private double price;
+    private boolean active;
 }
