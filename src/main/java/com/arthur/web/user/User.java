@@ -1,14 +1,14 @@
 package com.arthur.web.user;
 
+import com.arthur.web.product.Product;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -22,5 +22,9 @@ public class User {
     private String email;
     @JsonIgnore
     private String password;
-
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(name = "favorites", joinColumns = { @JoinColumn(name =
+            "user_id", referencedColumnName = "id") }, inverseJoinColumns = {
+            @JoinColumn(name = "produto_id") })
+    private List<Product> favorites = new ArrayList<Product>();
 }

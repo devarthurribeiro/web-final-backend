@@ -37,6 +37,7 @@ public class ProductController {
                     record.setName(product.getName());
                     record.setDescription(product.getDescription());
                     record.setPrice(product.getPrice());
+                    record.setImage(product.getImage());
                     record.setActive(product.isActive());
                     Product updated = repository.save(record);
                     return ResponseEntity.ok().body(updated);
