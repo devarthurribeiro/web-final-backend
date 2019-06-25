@@ -35,7 +35,7 @@ public class Auth implements UserDetails {
     @NotEmpty
     private String password;
 
-    @OneToOne(mappedBy = "auth")
+    @OneToOne(mappedBy = "auth", cascade = CascadeType.ALL)
     private User user;
 
     @ElementCollection(fetch = FetchType.EAGER)
