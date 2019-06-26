@@ -41,6 +41,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/products/**").authenticated()
                 .antMatchers(HttpMethod.PUT, "/products/**").authenticated()
                 .antMatchers(HttpMethod.DELETE, "/products/**").authenticated()
+                .antMatchers(HttpMethod.GET, "/categories/**").permitAll()
+                .antMatchers(HttpMethod.POST, "/categories/**").authenticated()
+                .antMatchers(HttpMethod.PUT, "/categories/**").authenticated()
+                .antMatchers(HttpMethod.DELETE, "/categories/**").authenticated()
                 .anyRequest().authenticated()
                 .and()
                 .apply(new JwtSecurityConfigurer(jwtTokenProvider));

@@ -1,14 +1,12 @@
 package com.arthur.web.product;
 
+import com.arthur.web.category.Category;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -23,4 +21,7 @@ public class Product {
     private String image;
     private double price;
     private boolean active;
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 }
