@@ -39,9 +39,12 @@ public class DataInitializer implements CommandLineRunner {
 
         User newUser = new User();
 
-        newUser.setName("Default");
+        newUser.setName("Arthur Ribeiro");
+        newUser.setEmail("devarthurribeiro@gmail.com");
+        newUser.setCourse("TADS");
+        newUser.setPhone("84991230249");
 
-        this.authRepository.save(Auth.builder().
+        Auth a = this.authRepository.save(Auth.builder().
                 username("admin").
                 user(newUser).
                 password(this.passwordEncoder.encode("admin"))
@@ -73,7 +76,10 @@ public class DataInitializer implements CommandLineRunner {
                 newUser
         );
 
-        productRepository.save(product1);
+        Product p = productRepository.save(product1);
         productRepository.save(product2);
+
+
+        userRepository.save(newUser);
     }
 }
