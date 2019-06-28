@@ -46,15 +46,9 @@ public class UserController {
     }
 
     @PutMapping(value="/{id}")
-    public ResponseEntity update(@PathVariable("id") long id,
+    public User update(@PathVariable("id") long id,
                                  @RequestBody User user) {
-        return repository.findById(id)
-                .map(record -> {
-                    record.setName(user.getName());
-                    record.setEmail(user.getEmail());
-                    User updated = repository.save(record);
-                    return ResponseEntity.ok().body(updated);
-                }).orElse(ResponseEntity.notFound().build());
+        return repository.save(user);
     }
 
     @PutMapping(value="/favorite/{id}")

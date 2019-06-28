@@ -27,7 +27,6 @@ import static java.util.stream.Collectors.toList;
 @UniqueConstraint(columnNames = "username", name = "username_uk"))
 public class Auth implements UserDetails {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotEmpty
     private String username;
@@ -36,6 +35,8 @@ public class Auth implements UserDetails {
     private String password;
 
     @OneToOne(mappedBy = "auth", cascade = CascadeType.ALL)
+    @JoinColumn
+    @MapsId
     private User user;
 
     @ElementCollection(fetch = FetchType.EAGER)

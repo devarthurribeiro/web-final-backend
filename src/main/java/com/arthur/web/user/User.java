@@ -33,6 +33,5 @@ public class User {
     @JsonIgnore
     private Set<Product> favorites;
     @OneToOne
-    @JoinColumn(name="user_id")
     private Auth auth;
 }

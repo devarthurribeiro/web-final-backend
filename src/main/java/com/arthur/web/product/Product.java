@@ -16,7 +16,6 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Data
 @Entity(name = "products")
-@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
